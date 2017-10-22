@@ -76,13 +76,8 @@ articleView.handleCategoryFilter = function() {
 articleView.handleMainNav = function() {
   $('.main-nav').on('click','.tab', function(){
     $('.tab-content').hide();
-    var tabName = $(this).attr('data-content');
-    if (tabName === 'articles') {
-      $('#articles').show();
-
-    } else {
-      $('#about').show();
-    }
+    var tabName = '#' + $(this).attr('data-content');
+    $(tabName).show();
   });
 
   // TODO: Add an event handler to .main-nav elements that will power the Tabs feature.
@@ -97,6 +92,13 @@ articleView.handleMainNav = function() {
 
 articleView.setTeasers = function() {
   $('.article-body *:nth-of-type(n+2)').hide(); // Hide elements beyond the first 2 in any article body.
+    $('.read-on').on('click', function() {
+      event.preventDefault();
+      $(this).siblings('.article-body').find('p').show();
+      $(this).hide('.read-on');
+    });
+
+  };
 
   // TODO: Add an event handler to reveal all the hidden elements,
   //       when the .read-on link is clicked. You can go ahead and hide the
@@ -106,7 +108,7 @@ articleView.setTeasers = function() {
 
   // STRETCH GOAl!: change the 'Read On' link to 'Show Less'
 
-};
+
 
 // TODO: Call all of the above functions, once we are sure the DOM is ready.
 $(document).ready(function() {
@@ -114,6 +116,6 @@ $(document).ready(function() {
   articleView.handleAuthorFilter();
   articleView.handleCategoryFilter();
   articleView.handleMainNav();
-  // articleView.setTeasers();
+  articleView.setTeasers();
 
 })
