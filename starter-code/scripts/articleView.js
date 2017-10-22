@@ -61,13 +61,13 @@ articleView.handleCategoryFilter = function() {
   //       Be sure to reset the #author-filter while you are at it!
   $('#category-filter').on('change', function() {
     if ($(this).val()) {
-    
+
       $('article').hide();
       console.log($(this).val());
       $('article[data-category="' +$(this).val()+ '"]').fadeIn(1000);
 
     } else {
-      
+
       $('article').show();
       $('.template').hide();
     }
@@ -83,6 +83,11 @@ articleView.handleMainNav = function() {
   //       So: You need to dynamically build a selector string with the correct ID, based on the
   //       data available to you on the .tab element that was clicked.
 
+$('.main-nav li').on('click', function() {
+  var selectTab = $(this).data('content');
+  $('.tab-content').hide();
+  $('#' + selectTab).fadeIn(1000);
+})
 
   $('.main-nav .tab:first').click(); // Let's now trigger a click on the first .tab element, to set up the page.
 };
@@ -105,6 +110,6 @@ $(document).ready(function() {
 articleView.populateFilters();
 articleView.handleAuthorFilter();
 articleView.handleCategoryFilter();
-// articleView.handleMainNav();
+articleView.handleMainNav();
 // articleView.setTeasers();
 })
