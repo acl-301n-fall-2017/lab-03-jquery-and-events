@@ -4,7 +4,7 @@
 body {
   line-height: 1.5;
   font-size: 100%;
-  color: #313131;
+  background-color: #e5d0cc;
 }
 
 hr {
@@ -27,11 +27,11 @@ address {
 
 a, a:link, a:active {
   text-decoration: none;
-  color: #777;
+  color: #444554;
 }
 
 a:hover, a:focus {
-  color: #29506D;
+  color: #7f7b82;
 }
 
 a:visited {
