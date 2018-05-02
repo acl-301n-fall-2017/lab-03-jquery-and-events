@@ -91,10 +91,6 @@ articleView.setTeasers = function() {
   //       Ideally, we'd attach this as just 1 event handler on the #articles section, and let it
   //       process any .read-on clicks that happen within child nodes.
 
-  $(document).ready(function() {
-      articleView.setTeasers();
-      // articleView.setTeasers().toggleClass(); ?? <-- show more/less ??
-  })
   // STRETCH GOAl!: change the 'Read On' link to 'Show Less'
 
 };
@@ -104,6 +100,7 @@ $(document).ready(function() {
   articleView.populateFilters();
   articleView.handleAuthorFilter();
   articleView.handleCategoryFilter();
+  articleView.setTeasers();
 })
 
 $("#filters").on('click', function() {
