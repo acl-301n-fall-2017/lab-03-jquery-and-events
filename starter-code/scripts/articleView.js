@@ -37,6 +37,10 @@ articleView.handleAuthorFilter = function() {
     //         defining. "$(this)" is using jQuery to select that element, so we can chain jQuery methods
     //         onto it.
     if ($(this).val()) {
+      var userChoice = $(this).val();
+      $('#articles').hide();
+      $(userChoice).fadeIn("slow");
+      console.log(userChoice);
       // TODO: If the select box was changed to an option that has a value, we need to hide all the articles,
       //       and then show just the ones that match for the author that was selected.
       //       Use an "attribute selector" to find those articles, and fade them in for the reader.
@@ -66,6 +70,10 @@ articleView.handleMainNav = function() {
   //       So: You need to dynamically build a selector string with the correct ID, based on the
   //       data available to you on the .tab element that was clicked.
 
+  $('.main-nav').on('click', '.tab', function() {
+  // $('.tab-content').hide();
+    
+  }),
 
   $('.main-nav .tab:first').click(); // Let's now trigger a click on the first .tab element, to set up the page.
 };
@@ -85,5 +93,7 @@ articleView.setTeasers = function() {
 
 // TODO: Call all of the above functions, once we are sure the DOM is ready.
 $(document).ready(function() {
-
+  articleView.populateFilters();
+  articleView.handleMainNav();
+  articleView.handleAuthorFilter();
 })
