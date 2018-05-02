@@ -91,7 +91,7 @@ articleView.handleMainNav = function() {
   //       data available to you on the .tab element that was clicked.
 
   $('.main-nav').on('click', '.tab', function() {
-  // $('.tab-content').hide();
+  $('.tab-content').show();
     
   }),
 
@@ -114,7 +114,7 @@ articleView.setTeasers = function() {
 // TODOne: Call all of the above functions, once we are sure the DOM is ready.
 $(document).ready(function() {
   articleView.populateFilters();
-  articleView.handleMainNav();
   articleView.handleAuthorFilter();
   articleView.handleCategoryFilter();
+  articleView.handleMainNav();
 })
