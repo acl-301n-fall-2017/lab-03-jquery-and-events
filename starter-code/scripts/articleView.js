@@ -102,15 +102,18 @@ articleView.handleMainNav = function() {
 articleView.setTeasers = function() {
   $('.article-body *:nth-of-type(n+2)').hide(); // Hide elements beyond the first 2 in any article body.
 
-  // TODO: Add an event handler to reveal all the hidden elements,
+  // TODOne: Add an event handler to reveal all the hidden elements,
   //       when the .read-on link is clicked. You can go ahead and hide the
   //       "Read On" link once it has been clicked. Be sure to prevent the default link-click action!
   //       Ideally, we'd attach this as just 1 event handler on the #articles section, and let it
   //       process any .read-on clicks that happen within child nodes.
-  $('')
+  $('#articles .read-on').on('click', function (event) {
+    event.preventDefault;
+    $(this).hide();
+
+  })
 
   // STRETCH GOAl!: change the 'Read On' link to 'Show Less'
-
 };
 
 // TODOne: Call all of the above functions, once we are sure the DOM is ready.
@@ -119,5 +122,5 @@ $(document).ready(function() {
   articleView.handleAuthorFilter();
   articleView.handleCategoryFilter();
   articleView.handleMainNav();
-  // articleView.setTeasers();
+  articleView.setTeasers();
 })
