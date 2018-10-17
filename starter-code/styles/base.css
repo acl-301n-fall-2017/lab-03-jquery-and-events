@@ -28,6 +28,8 @@ address {
 a, a:link, a:active {
   text-decoration: none;
   color: #777;
+  underline:none;
+  color: olive;
 }
 
 a:hover, a:focus {
